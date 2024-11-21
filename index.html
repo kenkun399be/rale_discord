@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discord鯖制作の同意</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      background-size: 100%;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    .container {
+      background-color: #222;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      border: 4px solid #ff0000;
+      animation: neonGlowRed 1s infinite alternate;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: none;
+      background-clip: text;
+      -webkit-background-clip: text; 
+      color: transparent; 
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      font-size: 1.2em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      font-weight: bold; 
+      text-shadow: 0 1px 1px white; 
+      position: relative; 
+      animation: neonGlowBlue 1s infinite alternate;
+    }
+
+    button:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transform: translateY(-2px) scale(1.1); 
+    }
+
+    .content {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      border: 2px solid #0000ff;
+      animation: neonGlowBlue 1.2s infinite alternate;
+    }
+
+    .content.show {
+      opacity: 1;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      background: none; 
+      z-index: -1; 
+    }
+
+    button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      border: 3px solid white; 
+      z-index: 1; 
+    }
+
+    .content p {
+      font-size: 1.1em;
+      line-height: 1.5;
+      text-align: left; 
+    }
+
+    @keyframes neonGlowRed {
+      from {
+        box-shadow: 0 0 10px #ff0000;
+      }
+      to {
+        box-shadow: 0 0 20px #ff0000;
+      }
+    }
+    @keyframes neonGlowGreen {
+      from {
+        box-shadow: 0 0 10px #00ff00;
+      }
+      to {
+        box-shadow: 0 0 20px #00ff00;
+      }
+    }
+    @keyframes neonGlowBlue {
+      from {
+        box-shadow: 0 0 10px #0000ff;
+      }
+      to {
+        box-shadow: 0 0 20px #0000ff;
+      }
+    }
+    @keyframes neonGlowYellow {
+      from {
+        box-shadow: 0 0 10px #ffff00;
+      }
+      to {
+        box-shadow: 0 0 20px #ffff00;
+      }
+    }
+
+    .content {
+      border: 2px solid #0000ff; 
+      animation: neonGlowBlue 1.2s infinite alternate;
+    }
+
+    #content {
+      border: 2px solid #ffff00; 
+      animation: neonGlowYellow 1.2s infinite alternate; 
+    }
+
+    #agreement p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Discord鯖制作のお手伝い</h1>
+
+    <button id="contentButton">内容確認</button>
+    <button id="agreementButton">同意する</button>
+
+    <div id="content" class="content">
+      <h2>Discord鯖制作条件</h2>
+      <p>
+        1. 以下に従う場合、けんくんは必ず鯖の制作、発展を手伝わなければならない。<br>
+        2. けんくんには永久に最上級の権限である管理者を付与しなければならない。<br>
+        3. この鯖での管理者は、鯖主であるRaleを除いて唯一の管理者である必要がある。<br>
+        4. Raleがこの鯖に影響を与えたい場合、けんくんの許可を得る必要がある。(出来るだけ鯖が過疎にならない方針で進めるため)
+      </p>
+    </div>
+
+    <div id="agreement" class="content">
+      <h2>あなたは鯖の制作条件に同意しました。</h2>
+      <p>この画面をスクリーンショットして、けんくんに提出してください。</p>
+    </div>
+  </div>
+
+  <script>
+    const contentButton = document.getElementById("contentButton");
+    const agreementButton = document.getElementById("agreementButton");
+    const content = document.getElementById("content");
+    const agreement = document.getElementById("agreement");
+
+    window.onload = () => {
+      contentButton.addEventListener("click", () => {
+        content.classList.add("show");
+      });
+
+      agreementButton.addEventListener("click", () => {
+        agreement.classList.add("show");
+      });
+    };
+  </script>
+
+</body>
+</html>
